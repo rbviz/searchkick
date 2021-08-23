@@ -38,9 +38,9 @@ module Searchkick
               if superclass.respond_to?(:searchkick_index) &&
                 class_variable_get(:@@searchkick_options)&.fetch(:inheritance, false)
 
-                superclass
+                superclass.unscoped
               else
-                self
+                unscoped
               end
           end
 
